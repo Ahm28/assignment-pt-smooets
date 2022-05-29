@@ -2,9 +2,14 @@ import { Container, Typography, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 
-export default function Profile() {
+export default function Profile({ profile }) {
+  console.log(profile);
+
+  const text =
+    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquamiure ad totam voluptate eius esse veniam ullam, cum molestiae,adipisci, eligendi officiis placeat laboriosam natus! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquamiure ad totam voluptate eius esse veniam ullam, cum molestiae,adipisci, eligendi officiis placeat laboriosam natus!";
+
   return (
-    <Box sx={{ my: 8 }}>
+    <Box sx={{ mt: 8 }}>
       <Container>
         <Box>
           <Box sx={{ textAlign: "center" }}>
@@ -20,12 +25,12 @@ export default function Profile() {
                 <Typography variant="h6" sx={{ fontWeight: "bold", mb: 4 }}>
                   About Me
                 </Typography>
-                <Typography sx={{ mb: 3 }}>
-                  I am a Frontend developer who likes technology and
-                  programming, especially in the field of website development. I
-                  have experience in programming since getting to know coding
-                  after graduating from high school, I studied independently and
-                  then sharpened it again at dumbways.id bootcamp
+                <Typography sx={{ mb: 3, lineHeight: "2" }}>
+                  {profile
+                    ? profile.profile == null
+                      ? text
+                      : profile.profile.about
+                    : "lorem"}
                 </Typography>
                 <Typography variant="caption">
                   Image from <i>Freepick</i>
@@ -55,9 +60,30 @@ export default function Profile() {
                 <Typography variant="h6" sx={{ fontWeight: "bold", mb: 4 }}>
                   Details
                 </Typography>
-                <ProfileData title="Nama" desc="Ahmad Mughni" />
-                <ProfileData title="Age" desc="20 Years" />
-                <ProfileData title="Location" desc="Kota Cimahi" />
+                <ProfileData
+                  title="Name"
+                  desc={profile ? profile.username : "Your Name"}
+                />
+                <ProfileData
+                  title="Age"
+                  desc={
+                    profile
+                      ? profile.profile == null
+                        ? "Your Age"
+                        : `${profile.profile.old} years`
+                      : "Your"
+                  }
+                />
+                <ProfileData
+                  title="Location"
+                  desc={
+                    profile
+                      ? profile.profile == null
+                        ? "Your Location"
+                        : `${profile.profile.address} years`
+                      : "Your"
+                  }
+                />
               </Grid>
             </Grid>
           </Box>

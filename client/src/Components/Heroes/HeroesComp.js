@@ -2,8 +2,9 @@ import { Box } from "@mui/system";
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { Container, Typography } from "@mui/material";
+import { API } from "../../config/api";
 
-export default function HeroesComp() {
+export default function HeroesComp({ profile }) {
   return (
     <Box component="div" sx={{ backgroundColor: "#dce4e4", mt: 3 }}>
       <Container>
@@ -27,7 +28,7 @@ export default function HeroesComp() {
               }}
             ></Box>
             <Typography variant="h3" sx={{ fontWeight: "bold", my: 3 }}>
-              I'm Ahmad Mughni
+              I'm {profile ? profile.username : "Your Name"}
             </Typography>
             <Typography variant="subtitle2" sx={{ mb: 3, fontWeight: "bold" }}>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam

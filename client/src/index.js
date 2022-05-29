@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import AppBarComp from "./Components/AppBar/AppBarComp";
 import { UserContextProvider } from "./context/userContext";
+import Footer from "./Components/Footer/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +15,7 @@ root.render(
       <BrowserRouter>
         <AppBarComp />
         <App />
+        <Footer />
       </BrowserRouter>
     </UserContextProvider>
   </React.StrictMode>

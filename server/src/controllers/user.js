@@ -47,19 +47,23 @@ exports.getUsers = async (req, res) => {
 
 exports.getUser = async (req, res) => {
   try {
-    const { id } = req.params;
-    const data = await user.findOne({
+    const { id } = req.user;
+    // console.log(id);
+    let data = await user.findOne({
       where: {
         id,
       },
       include: {
         model: profile,
         as: "profile",
-        attributes: {
-          exclude: ["password", "createdAt", "updatedAt"],
-        },
+      },
+      attributes: {
+        exclude: ["password", "createdAt", "updatedAt", "showPassword"],
       },
     });
+
+    data = JSON.parse(JSON.stringify(data));
+
     res.send({
       status: "Success",
       data: {

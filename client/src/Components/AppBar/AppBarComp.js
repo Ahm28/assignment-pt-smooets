@@ -18,7 +18,7 @@ import Login from "../Login/Login";
 import Register from "../Login/Regsiter";
 import { UserContext } from "../../context/userContext";
 import { setAuthToken } from "../../config/api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -46,7 +46,7 @@ const AppBarComp = () => {
   const [login, setLogin] = React.useState(false);
   const [state, dispatch] = React.useContext(UserContext);
 
-  console.log(state.isLogin);
+  console.log(state);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -96,19 +96,21 @@ const AppBarComp = () => {
           open={Boolean(anchorElUser)}
           onClose={handleCloseUserMenu}
         >
-          <MenuItem>
-            <Typography textAlign="center">Edit Profile</Typography>
-          </MenuItem>
+          <Link to={`/editProfile`}>
+            <MenuItem>
+              <Typography
+                textAlign="center"
+                sx={{ textDecoration: "none", color: "black" }}
+              >
+                Edit Profile
+              </Typography>
+            </MenuItem>
+          </Link>
           <MenuItem>
             <Typography textAlign="center" onClick={logout}>
               Logout
             </Typography>
           </MenuItem>
-          {/* {settings.map((setting) => (
-            <MenuItem key={setting} onClick={handleCloseUserMenu}>
-              <Typography textAlign="center">{setting}</Typography>
-            </MenuItem>
-          ))} */}
         </Menu>
       </Box>
     );
@@ -171,15 +173,17 @@ const AppBarComp = () => {
     <AppBar position="static" color="transparent">
       <Container>
         <Toolbar disableGutters>
-          <Box
-            component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-          >
-            <img
-              src="https://capp.nicepage.com/dc61006929b64bc8e6c4809d58ba9f86be95affd/images/default-logo.png"
-              alt="logo"
-            />
-          </Box>
+          <Link to="/">
+            <Box
+              component="div"
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              <img
+                src="https://capp.nicepage.com/dc61006929b64bc8e6c4809d58ba9f86be95affd/images/default-logo.png"
+                alt="logo"
+              />
+            </Box>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -217,15 +221,17 @@ const AppBarComp = () => {
               ))}
             </Menu>
           </Box>
-          <Box
-            component="div"
-            sx={{ mr: 2, display: { xs: "flex", md: "none" }, flexGrow: 1 }}
-          >
-            <img
-              src="https://capp.nicepage.com/dc61006929b64bc8e6c4809d58ba9f86be95affd/images/default-logo.png"
-              alt="logo"
-            />
-          </Box>
+          <Link to="/">
+            <Box
+              component="div"
+              sx={{ mr: 2, display: { xs: "flex", md: "none" }, flexGrow: 1 }}
+            >
+              <img
+                src="https://capp.nicepage.com/dc61006929b64bc8e6c4809d58ba9f86be95affd/images/default-logo.png"
+                alt="logo"
+              />
+            </Box>
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button

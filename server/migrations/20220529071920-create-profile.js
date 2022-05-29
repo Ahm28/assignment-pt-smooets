@@ -20,6 +20,9 @@ module.exports = {
       phone: {
         type: Sequelize.STRING,
       },
+      role: {
+        type: Sequelize.STRING,
+      },
       idUser: {
         type: Sequelize.INTEGER,
         references: {
