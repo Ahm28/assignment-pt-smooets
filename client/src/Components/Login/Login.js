@@ -14,7 +14,7 @@ import { UserContext } from "../../context/userContext";
 import React, { useContext, useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { API } from "../../config/api";
 
 export default function Login() {
@@ -100,7 +100,6 @@ export default function Login() {
           required
           id="outlined-required"
           label="Email"
-          size="small"
           sx={{ width: "100%", mt: 3, mb: 1 }}
           name="email"
           value={email}
@@ -131,6 +130,9 @@ export default function Login() {
             label="Password"
           />
         </FormControl>
+        <Link to="/forget" style={{ color: "#808e9b", textDecoration: "none" }}>
+          <Typography sx={{ my: 1 }}>Forgot Password?</Typography>
+        </Link>
         <Button variant="contained" type="submit">
           LOGIN
         </Button>

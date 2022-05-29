@@ -173,7 +173,7 @@ const AppBarComp = () => {
     <AppBar position="static" color="transparent">
       <Container>
         <Toolbar disableGutters>
-          <Link to="/">
+          <Link to="/resume">
             <Box
               component="div"
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
@@ -221,7 +221,7 @@ const AppBarComp = () => {
               ))}
             </Menu>
           </Box>
-          <Link to="/">
+          <Link to="/resume">
             <Box
               component="div"
               sx={{ mr: 2, display: { xs: "flex", md: "none" }, flexGrow: 1 }}

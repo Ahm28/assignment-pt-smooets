@@ -34,23 +34,24 @@ export default function EditProfile() {
   const getUser = async () => {
     try {
       const response = await API.get(`/user`);
+      const responseData = response.data.data.data;
       setFormUser({
         ...formUser,
-        username: response.data.data.data.username,
-        email: response.data.data.data.email,
+        username: responseData.username,
+        email: responseData.email,
       });
 
-      //   console.log(response.data.data.data);
-      //   if (response.data.data.data.profile != null) {
-      //     setFormProfile({
-      //       old: response.data.data.data.profile.old,
-      //       role: response.data.data.data.profile.role,
-      //       phone: response.data.data.data.profile.phone,
-      //       about: response.data.data.data.profile.about,
-      //       address: response.data.data.data.profile.address,
-      //     });
-      //   }
-      setUser(response.data.data.data);
+      console.log(responseData);
+      if (responseData.profile != null) {
+        setFormProfile({
+          old: responseData.profile.old,
+          role: responseData.profile.role,
+          phone: responseData.profile.phone,
+          about: responseData.profile.about,
+          address: responseData.profile.address,
+        });
+      }
+      setUser(responseData);
     } catch (error) {
       console.log(error);
     }
@@ -113,8 +114,6 @@ export default function EditProfile() {
       console.log(error);
     }
   };
-
-  //   console.log(formProfile.address);
 
   return (
     <>

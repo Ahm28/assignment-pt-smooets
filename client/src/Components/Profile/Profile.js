@@ -16,7 +16,14 @@ export default function Profile({ profile }) {
             <Typography variant="h3" sx={{ fontWeight: "bold" }}>
               PROFILE
             </Typography>
-            <Typography>I'm a Frontend Developer (React JS)</Typography>
+            <Typography>
+              I'm a{" "}
+              {profile
+                ? profile.profile == null
+                  ? "(Your Role)"
+                  : profile.profile.role
+                : "lorem"}{" "}
+            </Typography>
           </Box>
 
           <Box sx={{ mt: 5 }}>
