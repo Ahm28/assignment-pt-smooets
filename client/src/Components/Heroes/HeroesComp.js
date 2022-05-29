@@ -2,7 +2,6 @@ import { Box } from "@mui/system";
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { Container, Typography } from "@mui/material";
-import { API } from "../../config/api";
 
 export default function HeroesComp({ profile }) {
   return (

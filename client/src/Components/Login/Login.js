@@ -29,7 +29,7 @@ export default function Login() {
     showPassword: false,
   });
 
-  const { email, password } = form;
+  const { email } = form;
 
   const handleChange = (prop) => (e) => {
     setForm({

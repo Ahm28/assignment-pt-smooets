@@ -1,4 +1,3 @@
-import { Box } from "@mui/system";
 import React from "react";
 import HeroesComp from "../Components/Heroes/HeroesComp";
 import About from "../Components/Profile/About";

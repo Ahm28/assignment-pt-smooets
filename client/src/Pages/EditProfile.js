@@ -1,13 +1,7 @@
-import {
-  Button,
-  Container,
-  TextareaAutosize,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Button, Container, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import { API } from "../config/api";
 

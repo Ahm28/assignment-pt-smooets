@@ -11,7 +11,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import { Fade, Modal } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 import Login from "../Login/Login";
@@ -21,7 +20,6 @@ import { setAuthToken } from "../../config/api";
 import { Link, useNavigate } from "react-router-dom";
 
 const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const style = {
   position: "absolute",
@@ -43,7 +41,6 @@ const AppBarComp = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [modalLogin, setModalLogin] = React.useState(false);
   const [modalRegister, setModalRegister] = React.useState(false);
-  const [login, setLogin] = React.useState(false);
   const [state, dispatch] = React.useContext(UserContext);
 
   console.log(state);
@@ -237,7 +234,7 @@ const AppBarComp = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block", color: "black" }}
+                sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
               </Button>
