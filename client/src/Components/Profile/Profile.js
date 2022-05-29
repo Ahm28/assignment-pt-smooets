@@ -87,7 +87,7 @@ export default function Profile({ profile }) {
                     profile
                       ? profile.profile == null
                         ? "Your Location"
-                        : `${profile.profile.address} years`
+                        : profile.profile.address
                       : "Your"
                   }
                 />
