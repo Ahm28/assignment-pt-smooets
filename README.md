@@ -20,3 +20,8 @@
 
 `npm run dev`
 
+## Data Dummy
+
+email : `test@mail.com`
+password : `123456`
+
